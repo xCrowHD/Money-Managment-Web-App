@@ -31,14 +31,19 @@
               <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 list-group">
+                    <li class="nav-item list-group-item">
                       <a class="nav-link" href="#"><i class="fi fi-br-home"></i> Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item list-group-item">
                       <a class="nav-link" href="#"><i class="fi fi-br-chart-histogram"></i> Transactions</a>
                     </li>
-                    
+                    <li class="nav-item list-group-item">
+                      <a class="nav-link" href="#"><i class="fi fi-br-bank"></i> Investments</a>
+                    </li>
+                    <li class="nav-item list-group-item">
+                      <a class="nav-link" href="#"><i class="fi fi-br-layers"></i> Debts</a>
+                    </li>
                   </ul>
                 
               </nav>
@@ -50,7 +55,7 @@
 
         <!-- contents -->
           <!-- this div serves as a spacer with the navabar -->
-        <div style="height: 50px;"></div>
+        <div style="height: 30px;"></div>
           	<!-- this is where are all the charts ecc. -->
         <div class="container">
             
@@ -61,7 +66,7 @@
     
                 <div class="col">
                     <!-- charts -->
-                <div class="row justify-content-center m-2 gap-3">
+                <div class="row justify-content-evenly m-2 gap-3">
                     <!-- money spent chart -->
                     <div class="col-sm-5" id="chart">
                         <canvas id="MS" height="200"></canvas>
@@ -73,8 +78,8 @@
                           Select Months
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                          <li><a class="dropdown-item" id="1to6" href="#">1 to 6</a></li>
-                          <li><a class="dropdown-item" id="7to12" href="#">7 to 12</a></li>
+                          <li><a class="dropdown-item" id="1to6" href="#">January to June</a></li>
+                          <li><a class="dropdown-item" id="7to12" href="#">July to December</a></li>
                           
                         </ul>
                       </div>
@@ -90,23 +95,59 @@
                               Select Months
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                              <li><a class="dropdown-item" id="1to6q" href="#">1 to 6</a></li>
-                              <li><a class="dropdown-item" id="7to12q" href="#">7 to 12</a></li>
+                              <li><a class="dropdown-item" id="1to6q" href="#">January to June</a></li>
+                              <li><a class="dropdown-item" id="7to12q" href="#">July to December</a></li>
                               
                             </ul>
                           </div>
                     </div>    
                 </div>
                 <!-- secondo row of charts -->
-                <div class="row justify-content-center gap-3 m-2">
+                <div class="row justify-content-evenly gap-3 m-2">
+                  <!-- second row chart 1-->
                     <div class="col-sm-5 " id="chart">
-                        <canvas id="myChart"></canvas>
+                        <canvas id="myChart" height="100"></canvas>
+                        <!-- month selections dropdown-->
+                        <div class="btn-group dropend">
+                          <button type="button" class="btn dropdown-toggle"
+                           data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #e3f2fd;">
+                            Months Selection
+                          </button>
+                          <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">January</a></li>
+                            <li><a class="dropdown-item" href="#">February</a></li>
+                            <li><a class="dropdown-item" href="#">March</a></li>
+                            <li><a class="dropdown-item" href="#">April</a></li>
+                            <li><a class="dropdown-item" href="#">May</a></li>
+                            <li><a class="dropdown-item" href="#">June</a></li>
+                            <li><a class="dropdown-item" href="#">July</a></li>
+                            <li><a class="dropdown-item" href="#">August</a></li>
+                            <li><a class="dropdown-item" href="#">September</a></li>
+                            <li><a class="dropdown-item" href="#">October</a></li>
+                            <li><a class="dropdown-item" href="#">November</a></li>
+                            <li><a class="dropdown-item" href="#">December</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    <!-- second row chart 2 -->
+                    <div class="col-sm-5 " id="chart">
+                      <canvas id="MSE" height="300"></canvas>
+                      <!-- month selections dropdown-->
+                      <div class="btn-group dropend">
+                        <button type="button" class="btn dropdown-toggle"
+                         data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #e3f2fd;">
+                          Months Selection
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" id="1to6w" href="#">January to June</a></li>
+                          <li><a class="dropdown-item" id="7to12w" href="#">July to December</a></li>
+                        </ul>
+                      </div>
                     </div>
-                    
                 </div>
             </div>
             
             </div>
-            <script src="chartscripts.js"></script>
+          <script src="chartscripts.js"></script>
     </body>
 </html>

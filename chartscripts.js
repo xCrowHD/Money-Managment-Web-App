@@ -38,10 +38,10 @@
     const myChart = new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: ['👕 Clothes', '🍔 Food', '🚗 Car', '🎉 Fun', '🏠 House'],
+            labels: ['👕 Clothes', '🍔 Food', '🚗 Car', '🎉 Fun', '🏠 House', '👷 Job'],
             datasets: [{
                 label: '# of Votes',
-                data: [12, 19, 3, 5, 2, ],
+                data: [12, 19, 3, 5, 2, 4],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',

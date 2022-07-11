@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Transactions</title>
+</head>
+<body>
+
+    <!-- navbar -->
+    <nav class="navbar sticky-top navbar-expand-lg" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+            <div class="navbar-nav">
+                <a class="navbar-brand" data-bs-toggle="offcanvas" href="#menu"
+                role="button" aria-controls="offcanvasExample">
+                   <i class="fi fi-rr-menu-burger"></i>
+                 </a>
+              <span class="navbar-brand mb-0 h1">Money Managment APP</span>
+        </div>
+    </nav>
+
+    <!-- offcanvas menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="menu" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 list-group">
+                <li class="nav-item list-group-item">
+                  <a class="nav-link" href="index.html"><i class="fi fi-br-home"></i> Home</a>
+                </li>
+                <li class="nav-item list-group-item">
+                  <a class="nav-link" href="transactions.html"><i class="fi fi-br-chart-histogram"></i> Transactions</a>
+                </li>
+                <li class="nav-item list-group-item">
+                  <a class="nav-link" href="investments.html"><i class="fi fi-br-bank"></i> Investments</a>
+                </li>
+                <li class="nav-item list-group-item">
+                  <a class="nav-link" href="debt.html"><i class="fi fi-br-layers"></i> Debts</a>
+                </li>
+              </ul>
+            
+          </nav>
+          
+         </div>
+        </div>
+      </div>
+
+
+      <!-- page contents -->
+      <!-- this div serves as a spacer with the navabar -->
+      <div style="height: 30px;"></div>
+
+      <div class="container">
+        <div class="row gap-3">
+            <!-- this the form part -->
+            <div class="col-sm-4" id="chart">
+                <!-- this is the form -->
+                <div class="mb-3">
+                    <h3>This is a Form for transactions</h3>
+                </div>
+                <div class="mb-3">
+                    <label for="to/form" class="form-label">To/Form</label>
+                    <input type="text" class="form-control" id="to/from" placeholder="Person">
+                </div>
+                <div class="mb-3">
+                    <label for="money" class="form-label">Money</label>
+                    <!-- with this i cant have an input with 'things' -->
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" id="money" placeholder="Money">
+                        <span class="input-group-text">$</span>
+                    </div>
+                
+                </div>
+                <!-- this part is for the radiobox and money type selection -->
+                <div class="mb-3">
+                    <div class="row">
+                        <!-- radiobox earn or spent -->
+                        <div class="col-sm">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                  Earn
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                  Spent
+                                </label>
+                              </div>
+                        </div>
+                        <div class="col-sm">
+                            <!-- select money type -->
+                            <select class="form-select" aria-label="moneytypeselect">
+                                <option selected>Select Type</option>
+                                <option value="1">👕 Clothes</option>
+                                <option value="2">🍔 Food</option>
+                                <option value="3">🚗 Car</option>
+                                <option value="4">🎉 Fun</option>
+                                <option value="5">🏠 House</option>
+                                <option value="5">👷 Job</option>
+                              </select>
+                        </div>
+                    </div>
+   
+                </div>
+                <!-- This is a textarea description for the form transaction -->
+                <div class="mb-3">
+                    <label for="textarea" class="form-label">Description</label>
+                    <textarea class="form-control" id="textarea" rows="3"></textarea>
+                </div>
+                
+                <div>
+                    <button type="submit" class="btn btn-outline-primary">Submit</button>
+                </div>
+            </div>
+
+            <!-- this part is for the list of transactions -->
+            <div class="col-sm-7" id="chart">
+                <!-- transiction list header -->
+                <div id="chart" class="justify-content-evenly">
+                    <div class="row">
+                        <div class="col-sm">
+                            <h6>Person</h6>
+                        </div>
+                        <div class="col-sm">
+                            <h6>Money</h6>
+                        </div>
+                        <div class="col-sm">
+                            <h6>Spent/Ear</h6>
+                        </div>
+                        <div class="col-sm">
+                            <h6>Type</h6>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!-- this is where the list start -->
+                  <div class="accordion mt-3" id="accordion">
+                    <!-- this is the first item only -->
+                    <div class="accordion-item">
+                        <!-- this the first item header -->
+                      <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" 
+                        data-bs-target="#collapseOne" id="accbutton">
+                          <!-- this only the first element header-->
+                        <div class="row justify-content-evenly">
+                            
+                            <div class="col-sm">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Mattia</span>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" style="color: green;">15</span>
+                                    <span class="input-group-text">$</span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Earn</span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">👷</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        </button>
+                      </h2>
+                      <!-- item description -->
+                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" 
+                       data-bs-parent="#accordion">
+                        <div class="accordion-body">
+                          Descrizione : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
+                          nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+                          deserunt mollit anim id est laborum."
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- second item -->
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" 
+                        data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" 
+                        aria-controls="collapseTwo" id="accbutton">
+                        <div class="row justify-content-evenly">
+                            
+                            <div class="col-sm">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Silvio</span>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" style="color: red;">30</span>
+                                    <span class="input-group-text">$</span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Spent</span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">🎉</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        </button>
+                      </h2>
+                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" 
+                      data-bs-parent="#accordion">
+                        <div class="accordion-body">
+                          body
+                        </div>
+                      </div>
+                    </div>
+
+                </div>
+                <!-- end list -->
+            </div>
+
+        </div>
+      </div>
+    
+</body>
+</html>

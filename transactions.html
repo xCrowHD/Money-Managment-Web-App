@@ -84,14 +84,14 @@
                         <!-- radiobox earn or spent -->
                         <div class="col-sm">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="earn">
+                                <label class="form-check-label" for="earn">
                                   Earn
                                 </label>
                               </div>
                               <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="spent" checked>
+                                <label class="form-check-label" for="spent">
                                   Spent
                                 </label>
                               </div>
@@ -118,7 +118,7 @@
                 </div>
                 
                 <div>
-                    <button type="submit" class="btn btn-outline-primary">Submit</button>
+                    <button type="submit" id="submitB" class="btn btn-outline-primary">Submit</button>
                 </div>
             </div>
 
@@ -131,10 +131,13 @@
                             <h6>Person</h6>
                         </div>
                         <div class="col-sm">
+                            <h6>Month/Day</h6>
+                        </div>
+                        <div class="col-sm">
                             <h6>Money</h6>
                         </div>
                         <div class="col-sm">
-                            <h6>Spent/Ear</h6>
+                            <h6>Spent/Earn</h6>
                         </div>
                         <div class="col-sm">
                             <h6>Type</h6>
@@ -145,102 +148,7 @@
 
                 <!-- this is where the list start -->
                   <div class="accordion mt-3" id="accordion">
-                    <!-- this is the first item only -->
-                    <div class="accordion-item">
-                        <!-- this the first item header -->
-                      <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" 
-                        data-bs-target="#collapseOne" id="accbutton">
-                          <!-- this only the first element header-->
-                        <div class="row justify-content-evenly">
-                            
-                            <div class="col-sm">
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text">Mattia</span>
-                                </div>
-                            </div>
-                            
-                            <div class="col-sm">
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" style="color: green;">15</span>
-                                    <span class="input-group-text">$</span>
-                                </div>
-                            </div>
-
-                            <div class="col-sm">
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text">Earn</span>
-                                </div>
-                            </div>
-
-                            <div class="col-sm">
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text">👷</span>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        </button>
-                      </h2>
-                      <!-- item description -->
-                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" 
-                       data-bs-parent="#accordion">
-                        <div class="accordion-body">
-                          Descrizione : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
-                          nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-                          deserunt mollit anim id est laborum."
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- second item -->
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" 
-                        data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" 
-                        aria-controls="collapseTwo" id="accbutton">
-                        <div class="row justify-content-evenly">
-                            
-                            <div class="col-sm">
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text">Silvio</span>
-                                </div>
-                            </div>
-                            
-                            <div class="col-sm">
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" style="color: red;">30</span>
-                                    <span class="input-group-text">$</span>
-                                </div>
-                            </div>
-
-                            <div class="col-sm">
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text">Spent</span>
-                                </div>
-                            </div>
-
-                            <div class="col-sm">
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text">🎉</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        </button>
-                      </h2>
-                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" 
-                      data-bs-parent="#accordion">
-                        <div class="accordion-body">
-                          body
-                        </div>
-                      </div>
-                    </div>
-
+                    <!-- here are dinamically loaded the transactions -->
                 </div>
                 <!-- end list -->
             </div>
@@ -248,5 +156,6 @@
         </div>
       </div>
     
+      <script src="transactions_manager.js"></script>
 </body>
 </html>

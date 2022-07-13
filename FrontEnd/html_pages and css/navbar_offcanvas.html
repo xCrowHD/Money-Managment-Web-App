@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Navbar</title>
+</head>
+<body>
+    
+    <nav class="navbar sticky-top navbar-expand-lg" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+            <div class="navbar-nav">
+                <a class="navbar-brand" data-bs-toggle="offcanvas" href="#menu"
+                role="button" aria-controls="offcanvasExample">
+                   <i class="fi fi-rr-menu-burger"></i>
+                 </a>
+              <span class="navbar-brand mb-0 h1">Money Managment APP</span></div>
+        </div>
+    </nav>
+
+    
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="menu" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 list-group">
+                <li class="nav-item list-group-item">
+                  <a class="nav-link" href="index.html"><i class="fi fi-br-home"></i> Home</a>
+                </li>
+                <li class="nav-item list-group-item">
+                  <a class="nav-link" href="transactions.html"><i class="fi fi-br-chart-histogram"></i> Transactions</a>
+                </li>
+                <li class="nav-item list-group-item">
+                  <a class="nav-link" href="investments.html"><i class="fi fi-br-bank"></i> Investments</a>
+                </li>
+                <li class="nav-item list-group-item">
+                  <a class="nav-link" href="debt.html"><i class="fi fi-br-layers"></i> Debts</a>
+                </li>
+              </ul>
+        
+         </div>
+        </div>
+      
+</body>
+</html>

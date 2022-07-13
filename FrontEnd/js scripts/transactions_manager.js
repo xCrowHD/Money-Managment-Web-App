@@ -1,20 +1,21 @@
 let number = 0;
 // adding transictions dinamically
-function addingtrans(name, month, day, money, earn_spent, type, descr){
+function createAccordionItem(){
     // append accordion-item
     const newitem = document.createElement('div');
     newitem.className = 'accordion-item';
     newitem.id = `acc-item${number}`;
     document.getElementById('accordion').prepend(newitem);
-
+}
+function createAccordionHeader(){
     // header creation
     const header = document.createElement('h2');
     header.className = 'accordion-header';
     header.id = `heading${number}`;
-
     document.getElementById(`acc-item${number}`).appendChild(header);
-
-    // creating button in header
+}
+function createAccordionButton(){
+// creating button in header
     const buttone = document.createElement('button');
     buttone.className = 'accordion-button accbutton';
     buttone.id = `accbut${number}`;
@@ -24,13 +25,17 @@ function addingtrans(name, month, day, money, earn_spent, type, descr){
 
     document.getElementById(`heading${number}`).appendChild(buttone);
 
-    // adding the row to center evenly
+}
+function createAccordionRow(){
+// adding the row to center evenly
 
     const row = document.createElement('div');
     row.className = 'row justify-content-evenly';
     row.id = `r${number}`;
     document.getElementById(`accbut${number}`).appendChild(row);
 
+}
+function createAccordionBlocks(name, month, day, money, earn_spent, type){
     // adding all the name, month, spent/earn ecc.
     // creating the block inside the header
     let i = 0;
@@ -80,8 +85,8 @@ function addingtrans(name, month, day, money, earn_spent, type, descr){
     document.getElementById(`${number}cont3`).textContent = earn_spent;
     // creating the person type
     document.getElementById(`${number}cont4`).textContent = type;
-
-
+}
+function createAccordionBody(){
     // adding the body of accordion item
     const body = document.createElement('div');
     body.className = 'accordion-collapse collapse';
@@ -90,16 +95,71 @@ function addingtrans(name, month, day, money, earn_spent, type, descr){
     body.setAttribute('data-bs-parent', `#accordion`);
     document.getElementById(`acc-item${number}`).appendChild(body);
 
+}
+function createAccordionBodyText(descr){
     // creating the text body
     const tbody = document.createElement('div');
     tbody.className = 'accordion-body';
     tbody.textContent = descr;
     document.getElementById(`collapse${number}`).appendChild(tbody);
 
-      
+}
+function addingtrans(name, month, day, money, earn_spent, type, descr){
+    
+    createAccordionItem();
+    
+    createAccordionHeader();
+
+    createAccordionButton();
+    
+    createAccordionRow();
+    
+    createAccordionBlocks(name, month, day, money, earn_spent, type);
+
+    createAccordionBody();
+    
+    createAccordionBodyText(descr);
     number++;
 
 }
+function gettingValuesFromForm(){
 
+    let data = {ts: '', m: '', d: 0, mo: 0, es: '', t: '', de: ''  };
+
+    let name = document.getElementById('to/from').value;
+    data.ts = name;
+
+    let month = document.getElementById('month').value;
+    data.m = month;
+
+    let day = document.getElementById('day').value;
+    data.d = day;
+
+    let money = document.getElementById('money').value;
+    data.mo = money;
+
+
+    let earn = document.getElementById('earn');
+    let spent = document.getElementById('spent');
+
+    if(earn.checked){
+        data.es = earn.value;
+    }
+    else if(spent.checked){
+        data.es = spent.value;
+    }
+
+    let type = document.getElementById('type').value;
+    data.t = type;
+
+    let descr = document.getElementById('textarea').value;
+    data.de = descr;
+
+    return data;
+
+}
 document.getElementById('submitB').addEventListener('click',
- ()=>{addingtrans('Mattia', 'January', '15', 30, 'Earn', '🎉', 'agfbhgbfkdjhgbfdgakhg')});
+ ()=>{
+    let data = gettingValuesFromForm()
+    addingtrans(data.ts, data.m, data.d, data.mo, data.es, data.t, data.de);
+});

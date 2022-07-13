@@ -71,10 +71,10 @@ function dinloadnavbar(){
     document.getElementById('ocbody').appendChild(list);
 
     // if u wanna add or modify block u can do it from here
-    createBlock(' Home', 'index.html', 'fi fi-br-home', 'oclist');
-    createBlock(' Transactions', 'transactions.html', 'fi fi-br-chart-histogram', 'oclist');
-    createBlock(' Investments', 'investments.html', 'fi fi-br-bank', 'oclist');
-    createBlock(' Debts', 'debt.html', 'fi fi-br-layers', 'oclist');
+    createBlock(' Home', '../html_pages and css/index.html', 'fi fi-br-home', 'oclist');
+    createBlock(' Transactions', '../html_pages and css/transactions.html', 'fi fi-br-chart-histogram', 'oclist');
+    createBlock(' Investments', '../html_pages and css/investments.html', 'fi fi-br-bank', 'oclist');
+    createBlock(' Debts', '../html_pages and css/debt.html', 'fi fi-br-layers', 'oclist');
 
 
 }

@@ -13,6 +13,40 @@
 <body>
     <!-- the navabr and offcanvas are dinamically loaded -->
 
+    <!-- this div serves as a spacer with the navabar -->
+    <div style="height: 30px;"></div>
+
+    <div class="container">
+        <!-- this the title -->
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 style="text-align: center;">This is Today Stock Market Performance 
+                    <span id="stockperf" style="color: green;">3.08%</span></h1>
+            </div>
+        </div>
+        
+        <!-- this the form -->
+        <div class="row justify-content-center">
+            <div class="col-sm-3 m-5" id="chart">
+                
+                <div class="input-group">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="stocksymbol" placeholder="APPL" value =''>
+                        <label for="stocksymbol">Stock Symbol</label>
+                      </div>
+                    <button class="btn btn-outline-primary" type="button" id="sendstock">Submit</button>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- this where the stock boxes are displayed -->
+
+        <div class="row justify-content-evenly gap-4" id="stocklist">
+            <!-- stock boxes are dinamically loaded -->
+        </div>
+    </div>
+    <script src="../js scripts/stockboxCreation.js"></script>
     <script src="../js scripts/dinload_navbar.js"></script>
 </body>
 </html>

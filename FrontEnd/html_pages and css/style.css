@@ -6,7 +6,11 @@
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
     padding: 10px;
 }
-
+.block{
+    border-radius: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    padding: 10px;
+}
 .accbutton{
     display: block !important;
 }

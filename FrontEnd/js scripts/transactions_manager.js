@@ -161,6 +161,6 @@ function gettingValuesFromForm(){
 }
 document.getElementById('submitB').addEventListener('click',
  ()=>{
-    let data = gettingValuesFromForm()
+    let data = gettingValuesFromForm();
     addingtrans(data.ts, data.m, data.d, data.mo, data.es, data.t, data.de);
 });

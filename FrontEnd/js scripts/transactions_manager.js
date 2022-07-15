@@ -32,6 +32,7 @@ function createAccordionRow(){
     const row = document.createElement('div');
     row.className = 'row justify-content-evenly';
     row.id = `r${number}`;
+    row.style.alignItems = 'center';
     document.getElementById(`accbut${number}`).appendChild(row);
 
 }

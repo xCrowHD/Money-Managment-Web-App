@@ -84,8 +84,8 @@ function createStockBox(symbol, imgURL, name, price, changeper){
     //<p class="lead" style="text-align: center; color:green;">Good to Buy!</p> 
 }
 function getStockS(){
-    let val = document.getElementById('stocksymbol').value;
-    return val;
+    return document.getElementById('stocksymbol').value;
+    
 }
 document.getElementById('sendstock').addEventListener('click', ()=>{
     let sym = getStockS();

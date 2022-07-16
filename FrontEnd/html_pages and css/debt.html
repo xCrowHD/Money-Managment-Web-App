@@ -24,18 +24,18 @@
         <div class="row justify-content-center">
             <div class="col-sm-3 m-5" id="chart">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="debtname" placeholder="debtname">
+                    <input type="text" class="form-control" id="debtname" placeholder="debtname" value="">
                     <label for="debtname">Debt Name</label>
                 </div>
                 <div class="input-group mb-3">
                     <div class="form-floating">
-                        <input type="number" class="form-control" id="debtmoney" placeholder="debtmoney">
+                        <input type="number" class="form-control" id="debtmoney" placeholder="debtmoney" value="">
                         <label for="debtmoney">Debt Amount</label>
                     </div>
                     <span class="input-group-text">$</span>
                 </div>
                 
-                <button class="btn btn-outline-primary" type="button" id="adddebt">Submit</button>
+                <button class="btn btn-outline-primary" type="submit" id="adddebt">Submit</button>
                     
             </div>
         </div>
@@ -62,7 +62,7 @@
 
         <!-- thsi is a debt -->
         <div id="list">
-            <div class="block">
+            <div class="block mb-3">
                 <div class="row justify-content-evenly " style="align-items: center;">
                     <div class="col-sm-2">
                         <h5>Affitto</h5>
@@ -87,6 +87,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
         
         <!-- Modal -->
@@ -121,5 +122,6 @@
 </div>
     
     <script src="../js scripts/dinload_navbar.js"></script>
+    <script src="../js scripts/debt_creation.js"></script>
 </body>
 </html>

@@ -9,12 +9,12 @@ function dinloadnavbar(){
     const cont  = document.createElement('div');
     cont.className = 'container-fluid';
     cont.id = 'cont'
-    document.getElementById('navb').appendChild(cont);
+    document.getElementById(nav.id).appendChild(cont);
 
     const navnav = document.createElement('div');
     navnav.className = 'navbar-nav';
     navnav.id = 'navnav'
-    document.getElementById('cont').appendChild(navnav);
+    document.getElementById(cont.id).appendChild(navnav);
 
     const a = document.createElement('a');
     a.className = 'navbar-brand';
@@ -23,16 +23,16 @@ function dinloadnavbar(){
     a.setAttribute('data-bs-toggle', 'offcanvas');
     a.setAttribute('aria-controls', 'offcanvasExample');
     a.setAttribute('role', 'button');
-    document.getElementById('navnav').appendChild(a);
+    document.getElementById(navnav.id).appendChild(a);
 
     const i = document.createElement('i');
     i.className = 'fi fi-rr-menu-burger';
-    document.getElementById('someid').appendChild(i);
+    document.getElementById(a.id).appendChild(i);
 
     const title = document.createElement('span');
     title.className = 'navbar-brand mb-0 h1';
     title.textContent = 'Money Manager APP';
-    document.getElementById('navnav').appendChild(title);
+    document.getElementById(navnav.id).appendChild(title);
 
     // offcanvas create
     const oc = document.createElement('div');
@@ -45,36 +45,36 @@ function dinloadnavbar(){
     const och = document.createElement('div');
     och.className = 'offcanvas-header';
     och.id = 'och';
-    document.getElementById('menu').appendChild(och);
+    document.getElementById(oc.id).appendChild(och);
 
     const h = document.createElement('h5');
     h.className = 'offcanvas-title';
     h.id = 'offcanvasExampleLabel';
     h.textContent = 'Menu';
-    document.getElementById('och').appendChild(h);
+    document.getElementById(och.id).appendChild(h);
 
     const close = document.createElement('button');
     close.className = 'btn-close';
     close.type = 'button';
     close.setAttribute('data-bs-dismiss', 'offcanvas');
     close.setAttribute('aria-label', 'Close');
-    document.getElementById('och').appendChild(close);
+    document.getElementById(och.id).appendChild(close);
 
     const ocbody = document.createElement('div');
     ocbody.className = 'offcanvas-body';
     ocbody.id = 'ocbody';
-    document.getElementById('menu').appendChild(ocbody);
+    document.getElementById(oc.id).appendChild(ocbody);
 
     const list = document.createElement('ul');
     list.className = 'navbar-nav me-auto mb-2 mb-lg-0 list-group';
     list.id = 'oclist';
-    document.getElementById('ocbody').appendChild(list);
+    document.getElementById(ocbody.id).appendChild(list);
 
     // if u wanna add or modify block u can do it from here
-    createBlock(' Home', '../html_pages and css/index.html', 'fi fi-br-home', 'oclist');
-    createBlock(' Transactions', '../html_pages and css/transactions.html', 'fi fi-br-chart-histogram', 'oclist');
-    createBlock(' Investments', '../html_pages and css/investments.html', 'fi fi-br-bank', 'oclist');
-    createBlock(' Debts', '../html_pages and css/debt.html', 'fi fi-br-layers', 'oclist');
+    createBlock(' Home', '../html_pages and css/index.html', 'fi fi-br-home', list.id);
+    createBlock(' Transactions', '../html_pages and css/transactions.html', 'fi fi-br-chart-histogram', list.id);
+    createBlock(' Investments', '../html_pages and css/investments.html', 'fi fi-br-bank', list.id);
+    createBlock(' Debts', '../html_pages and css/debt.html', 'fi fi-br-layers', list.id);
 
 
 }
@@ -94,7 +94,7 @@ function createBlock(text, url, flatuiClass, listappendID){
 
     const icon = document.createElement('i');
     icon.className = flatuiClass;
-    document.getElementById(`${text}cont`).prepend(icon)
+    document.getElementById(body.id).prepend(icon)
 
 
 

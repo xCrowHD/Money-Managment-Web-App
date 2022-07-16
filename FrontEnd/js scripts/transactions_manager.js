@@ -43,18 +43,18 @@ function createAccordionBlocks(name, month, day, money, earn_spent, type){
     while (i < 5) {
         const info = document.createElement('div');
         info.className = 'col-sm';
-        info.id = `${number}part0${i}`
+        info.id = `${number}part0${i}`;
         document.getElementById(`r${number}`).appendChild(info)
     
         const info1 = document.createElement('div');
         info1.className = 'input-group mb-3';
         info1.id = `${number}part1${i}`;
-        document.getElementById(`${number}part0${i}`).appendChild(info1)
+        document.getElementById(info.id).appendChild(info1)
 
         const sp = document.createElement('span');
         sp.className = "input-group-text";
         sp.id = `${number}cont${i}`;
-        document.getElementById(`${number}part1${i}`).append(sp);
+        document.getElementById(info1.id).append(sp);
 
 
         i++;

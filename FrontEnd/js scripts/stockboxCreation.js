@@ -15,7 +15,7 @@ function createCButton(symbol){
 
     // close function
 
-    document.getElementById(`close ${symbol}`).addEventListener('click', ()=>{
+    document.getElementById(close.id).addEventListener('click', ()=>{
         let elem = document.getElementById(`s${symbol}`);
         elem.parentNode.removeChild(elem);
     })
@@ -31,7 +31,7 @@ function createIMG(symbol, imgURL){
     img.style.display = 'block';
     img.src = imgURL;
     img.alt = 'LOGO';
-    document.getElementById(`stockS ${symbol}`).appendChild(img);
+    document.getElementById(imgcont.id).appendChild(img);
 }
 function createRow(symbol){
     let row = document.createElement('div');
@@ -49,12 +49,12 @@ function create4TextBoxes(symbol, name, price, changeper){
 
         let h2 = document.createElement('h2');
         h2.id = `h2 ${i} ${symbol}`;
-        document.getElementById(`text ${i} ${symbol}`).appendChild(h2);
+        document.getElementById(ns.id).appendChild(h2);
 
         let p = document.createElement('p');
         p.className = 'lead';
         p.id = `p ${i} ${symbol}`;
-        document.getElementById(`text ${i} ${symbol}`).appendChild(p);
+        document.getElementById(ns.id).appendChild(p);
 
 
 

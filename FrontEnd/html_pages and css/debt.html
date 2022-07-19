@@ -51,10 +51,10 @@
             <div class="col-sm-2">
                 <h5>Payed Debt</h5>
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-4">
                 <h5>Progress Bar</h5>
             </div>
-            <div class="col-sm-1">
+            <div class="col-sm-2">
                 <h5>Pay Button</h5>
             </div>
 
@@ -62,32 +62,7 @@
 
         <!-- thsi is a debt -->
         <div id="list">
-            <div class="block mb-3">
-                <div class="row justify-content-evenly " style="align-items: center;">
-                    <div class="col-sm-2">
-                        <h5>Affitto</h5>
-                    </div>
-                    <div class="col-sm-2">
-                        <h5>800 $</h5>
-                    </div>
-                    <div class="col-sm-2">
-                        <h5>200 $</h5>
-                    </div>
-                    <div class="col-sm-5">
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="200" 
-                            aria-valuemin="0" aria-valuemax="800" style="width: 20%"></div>
-                          </div>
-                    </div>
-                    <div class="col-sm-1">
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-                        Pay
-                        </button>
-                    </div>
-                </div>
-            </div>
-
+            <!-- this is where we will dinamically add debts -->
         </div>
         
         <!-- Modal -->
@@ -103,7 +78,7 @@
             <div class="modal-body">
                 <div class="input-group ">
                     <div class="form-floating">
-                        <input type="number" class="form-control" id="floatingInput" placeholder="amount">
+                        <input type="number" class="form-control" id="floatingInput" placeholder="amount" value="">
                         <label for="floatingInput">Amount you are paying</label>
                       </div>
                     <span class="input-group-text">$</span>
@@ -112,7 +87,7 @@
             <!-- modal footer -->
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary" value="">Pay Debt</button>
+            <button type="submit" class="btn btn-primary" value="" id="sumbmitdebt">Pay Debt</button>
             </div>
         </div>
         </div>

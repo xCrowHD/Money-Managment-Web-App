@@ -1,6 +1,7 @@
 function createBox(symbol){
     let ct = document.createElement('div');
     ct.className = 'col-sm-3 block';
+    // do not modify this or u have to modify line 93 id
     ct.id = `s${symbol}`;
     document.getElementById('stocklist').appendChild(ct);
 }
@@ -89,6 +90,8 @@ function getStockS(){
 }
 document.getElementById('sendstock').addEventListener('click', ()=>{
     let sym = getStockS();
-
-    createStockBox(sym, '', 'cose', 120, 20);
+    if(document.getElementById(`s${sym}`) == null){
+        createStockBox(sym, '', 'cose', 120, 20);
+    }
+    
 })

@@ -154,11 +154,11 @@
     ],
 
     "debts" : [
-        ["DebtName", "TotalDebt", "PayedDebt"]
+        ["id", "DebtName", "TotalDebt", "PayedDebt"]
     ],
-
+    
     "stocks" : [
-        ["Logo", "Symbol", "Name", "Price", "Change"]
+        ["id", "Logo", "Symbol", "Name", "Price", "Change"]
     ]
 
 

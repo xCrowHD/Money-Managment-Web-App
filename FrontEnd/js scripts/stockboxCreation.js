@@ -88,10 +88,47 @@ function getStockS(){
     return document.getElementById('stocksymbol').value;
     
 }
+// Creating the StockBox using TwelveData API
+async function request(sym, api_key){
+    let p = await fetch(`https://api.twelvedata.com/price?symbol=${sym}&apikey=${api_key}`);
+    let pJSON = await p.json();
+    let price  = pJSON['price'];
+    let q = await fetch(`https://api.twelvedata.com/quote?symbol=${sym}&apikey=${api_key}`);
+    let qJSON = await q.json();
+    let name = qJSON['name'];
+    let perchange = qJSON['percent_change'];
+    let l = await fetch(`https://api.twelvedata.com/logo?symbol=${sym}&apikey=${api_key}`);
+    let lJSON = await l.json();
+    let logo = lJSON['url'];
+
+    createStockBox(sym, logo, name, parseFloat(price).toFixed(2), parseFloat(perchange).toFixed(2));
+}
+
+//Here the event listener for creating stock box
 document.getElementById('sendstock').addEventListener('click', ()=>{
     let sym = getStockS();
     if(document.getElementById(`s${sym}`) == null){
-        createStockBox(sym, '', 'cose', 120, 20);
+
+        const api_key  = '69231d33dbce46b5b0a8d16202890131';
+        request(sym, api_key);
+        console.log("Here First");
     }
     
 })
+
+// Getting the Market Performance
+async function loadStocksPerformance(api_key){
+    let p = await fetch(`https://api.twelvedata.com/quote?symbol=SPX&apikey=${api_key}`);
+    let pJSON = await p.json();
+    let per  = pJSON['percent_change'];
+    let f = parseFloat(per).toFixed(2);
+    document.getElementById('stockperf').textContent = `${f}%`;
+    if(f < 0 ){
+        document.getElementById('stockperf').style.color = 'red';
+    }
+    else{
+        ocument.getElementById('stockperf').style.color = 'green';
+    }
+}
+
+loadStocksPerformance('69231d33dbce46b5b0a8d16202890131');

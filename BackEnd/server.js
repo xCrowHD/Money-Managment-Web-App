@@ -2,10 +2,16 @@ const express = require('express');
 const fs = require('fs');
 const app = express();
 
-app.use(express.json());
 
-app.get('/h', function (req, res) {
-  res.send('<h1>Hello World<h1>');
+app.get('/full', function (req, res) {
+  fs.readFile('datas.json', (err, data) =>{
+    
+    if(err) throw err;
+    else{
+      let d = JSON.parse(data);
+      res.send(d);
+    }
+  })
 })
 
 app.get('/g', function (req, res) {

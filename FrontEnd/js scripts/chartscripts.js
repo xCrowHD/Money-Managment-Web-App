@@ -34,6 +34,7 @@
     });
     
     // this the pie chart 'Where you spent money'
+    let m = "Jan";
     const ctx = document.getElementById('myChart').getContext('2d');
     const myChart = new Chart(ctx, {
         type: 'pie',
@@ -64,7 +65,7 @@
         options:{
             plugins:{
                 legend:{display:true, position:'right', font:{size:50}},
-                title:{display:true, text:'Where you spent money', font:{size:15}}
+                title:{display:true, text:`Where you spent money in ${m}`, font:{size:15}}
             }
         },
         

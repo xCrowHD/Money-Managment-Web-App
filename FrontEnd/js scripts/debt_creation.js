@@ -1,6 +1,6 @@
 function addDebt(debtN, totalAmount, payedAmount){
     let block = document.createElement('div');
-    block.className = 'block mb-3';
+    block.className = 'd-1 mb-3';
     // if u want to modify this id u have to modify line 148 id
     block.id = `block ${debtN}`;
     document.getElementById('list').appendChild(block);
@@ -18,6 +18,7 @@ function addDebt(debtN, totalAmount, payedAmount){
     document.getElementById(row.id).appendChild(debtB);
 
     let debtName = document.createElement('h5');
+    debtName.style.color = '#1e272e';
     debtName.textContent = debtN;
     document.getElementById(debtB.id).appendChild(debtName);
 
@@ -29,6 +30,7 @@ function addDebt(debtN, totalAmount, payedAmount){
 
     let debtTAmount = document.createElement('h5');
     debtTAmount.id = `debt total ${debtN}`;
+    debtTAmount.style.color = '#1e272e';
     document.getElementById(debtB1.id).appendChild(debtTAmount);
 
     let debtT = document.createElement('span');
@@ -37,6 +39,7 @@ function addDebt(debtN, totalAmount, payedAmount){
     document.getElementById(debtTAmount.id).appendChild(debtT);
 
     let dollarsi = document.createElement('span');
+    dollarsi.style.color = '#1e272e';
     dollarsi.textContent = ' $';
     document.getElementById(debtTAmount.id).appendChild(dollarsi);
     
@@ -52,11 +55,16 @@ function addDebt(debtN, totalAmount, payedAmount){
     document.getElementById(debtB2.id).appendChild(debtPayedAmount);
 
     let dollarAm = document.createElement('span');
+    dollarAm.style.color = '#1e272e';
     dollarAm.textContent = payedAmount;
     dollarAm.id = `payed ${debtN}`;
     document.getElementById(debtPayedAmount.id).appendChild(dollarAm);
     
-    document.getElementById(debtPayedAmount.id).appendChild(dollarsi);
+    let dollarsi1 = document.createElement('span');
+    dollarsi1.style.color = '#1e272e';
+    dollarsi1.textContent = ' $';
+    document.getElementById(dollarAm.id).appendChild(dollarsi1);
+    
 
     // progress bar
     let debtB3 = document.createElement('div');

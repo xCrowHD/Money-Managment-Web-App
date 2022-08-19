@@ -1,6 +1,6 @@
 function createBox(symbol){
     let ct = document.createElement('div');
-    ct.className = 'col-sm-3 block';
+    ct.className = 'col-sm-3 d-1';
     // do not modify this or u have to modify line 93 id
     ct.id = `s${symbol}`;
     document.getElementById('stocklist').appendChild(ct);
@@ -37,6 +37,7 @@ function createIMG(symbol, imgURL){
 function createRow(symbol){
     let row = document.createElement('div');
     row.className = 'row';
+    row.style.color = '#1e272e';
     row.id = `row ${symbol}`;
     document.getElementById(`s${symbol}`).appendChild(row);
 }

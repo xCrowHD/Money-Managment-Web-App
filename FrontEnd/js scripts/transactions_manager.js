@@ -3,8 +3,9 @@ let number = 0;
 function createAccordionItem(){
     // append accordion-item
     const newitem = document.createElement('div');
-    newitem.className = 'accordion-item';
+    newitem.className = 'accordion-item d-1';
     newitem.id = `acc-item${number}`;
+    newitem.style.color = 'white';
     document.getElementById('accordion').prepend(newitem);
 }
 function createAccordionHeader(){
@@ -101,6 +102,7 @@ function createAccordionBodyText(descr){
     // creating the text body
     const tbody = document.createElement('div');
     tbody.className = 'accordion-body';
+    tbody.style.color = '#1e272e';
     tbody.textContent = descr;
     document.getElementById(`collapse${number}`).appendChild(tbody);
 

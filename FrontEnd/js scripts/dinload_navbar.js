@@ -2,7 +2,7 @@ function dinloadnavbar(){
     // navabar create
     const nav = document.createElement('nav');
     nav.className = 'navbar sticky-top navbar-expand-lg';
-    nav.style.backgroundColor = '#e3f2fd'
+    nav.style.backgroundColor = '#34e7e4'
     nav.id = 'navb'
     document.body.prepend(nav);
 
@@ -32,6 +32,7 @@ function dinloadnavbar(){
     const title = document.createElement('span');
     title.className = 'navbar-brand mb-0 h1';
     title.textContent = 'Money Manager APP';
+    title.style.color = '#1e272e'
     document.getElementById(navnav.id).appendChild(title);
 
     // offcanvas create

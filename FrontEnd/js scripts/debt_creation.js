@@ -1,6 +1,6 @@
 function addDebt(debtN, totalAmount, payedAmount){
     let block = document.createElement('div');
-    block.className = 'd-1 mb-3';
+    block.className = 'd-1 debt mb-3';
     // if u want to modify this id u have to modify line 148 id
     block.id = `block ${debtN}`;
     document.getElementById('list').appendChild(block);

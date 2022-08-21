@@ -97,8 +97,6 @@ function createBlock(text, url, flatuiClass, listappendID){
     icon.className = flatuiClass;
     document.getElementById(body.id).prepend(icon)
 
-
-
 }
 
-window.onload = dinloadnavbar;
+window.onload = dinloadnavbar();

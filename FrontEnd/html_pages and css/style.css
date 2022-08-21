@@ -1,6 +1,18 @@
 @import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
 @import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
 
+.btn-primary{
+  background-color: #3c40c6 !important;
+  border-color: #3c40c6 !important;
+}
+.btn-outline-primary{
+  color: #3c40c6 !important;
+  border-color: #3c40c6 !important;
+}
+.btn-secondary{
+  background-color: #485460 !important;
+  border-color: #485460 !important;
+}
 
 .block{
     border-radius: 20px;
@@ -10,7 +22,7 @@
 .accbutton{
     display: block !important;
 }
-li.d-1{
+.nav-item.d-1{
   padding-left: 10px;
   color: #1e272e;
 
@@ -23,6 +35,29 @@ li.d-1{
   background-origin:border-box;
 }
 
+/* this the class of a debt block */
+.debt.d-1{
+  color: #ffc048;
+
+  background:
+      linear-gradient(-45deg,transparent var(--g),#ffa801 0) left  /var(--c) 100%,
+      linear-gradient(135deg,transparent var(--g),#ffa801 0) bottom /100% var(--c),
+      conic-gradient(from -90deg at top var(--b)   right var(--b),currentColor 270deg,transparent 0),
+      conic-gradient(from  90deg at bottom calc(var(--c) + var(--b)) left calc(var(--c) + var(--b)),currentColor 270deg,transparent 0) ;
+  background-repeat:no-repeat;
+  background-origin:border-box;
+}
+.chart.d-1{
+  color: #0be881;
+
+  background:
+      linear-gradient(-45deg,transparent var(--g),#05c46b 0) left  /var(--c) 100%,
+      linear-gradient(135deg,transparent var(--g),#05c46b 0) bottom /100% var(--c),
+      conic-gradient(from -90deg at top var(--b)   right var(--b),currentColor 270deg,transparent 0),
+      conic-gradient(from  90deg at bottom calc(var(--c) + var(--b)) left calc(var(--c) + var(--b)),currentColor 270deg,transparent 0) ;
+  background-repeat:no-repeat;
+  background-origin:border-box;
+}
 /* hover effect */
 .d-1 {
     padding: 10px;
@@ -36,8 +71,8 @@ li.d-1{
     border: solid transparent;
     border-width:var(--b) var(--b) calc(var(--c) + var(--b)) calc(var(--c) + var(--b));
     background:
-      linear-gradient(-45deg,transparent var(--g),#575fcf 0) left  /var(--c) 100%,
-      linear-gradient(135deg,transparent var(--g),#575fcf 0) bottom /100% var(--c),
+      linear-gradient(-45deg,transparent var(--g),#3c40c6 0) left  /var(--c) 100%,
+      linear-gradient(135deg,transparent var(--g),#3c40c6 0) bottom /100% var(--c),
       conic-gradient(from -90deg at top var(--b)   right var(--b),currentColor 270deg,transparent 0),
       conic-gradient(from  90deg at bottom calc(var(--c) + var(--b)) left calc(var(--c) + var(--b)),currentColor 270deg,transparent 0) ;
     background-repeat:no-repeat;

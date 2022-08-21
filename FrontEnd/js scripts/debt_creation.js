@@ -132,7 +132,6 @@ function addDebt(debtN, totalAmount, payedAmount){
             document.getElementById(progress.id).style.width = `${ divide * 100}%`;
         }
         
-        
     }
     document.getElementById('sumbmitdebt').addEventListener('click', payedDebt);
 
@@ -145,6 +144,7 @@ function addDebt(debtN, totalAmount, payedAmount){
 
 }
 
+// U can create debts and add them to the list of them
 document.getElementById('adddebt').addEventListener('click', ()=>{
     let money = document.getElementById('debtmoney').value;
     let m = money;
@@ -157,3 +157,16 @@ document.getElementById('adddebt').addEventListener('click', ()=>{
     }
     
 })
+
+// retrieve debt from datas.json
+async function loadDebts(){
+    let data = await fetch('http://localhost:3000/debts');
+    let debtsList = await data.json();
+    debtsList.forEach(element =>{
+        console.log(element);
+        addDebt(element[1], element[2], element[3]);
+
+    });
+}
+
+window.onload = loadDebts();

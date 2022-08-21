@@ -132,4 +132,17 @@ async function loadStocksPerformance(api_key){
     }
 }
 
-loadStocksPerformance('69231d33dbce46b5b0a8d16202890131');
+window.onload = loadStocksPerformance('69231d33dbce46b5b0a8d16202890131');
+
+
+// Loading saved stocks from the datas.json
+async function loadStocksInData(){
+    let data = await fetch('http://localhost:3000/stocks');
+    let stockList = await data.json();
+    console.log(stockList);
+    stockList.forEach(element =>{
+        const api_key  = '69231d33dbce46b5b0a8d16202890131';
+        request(element, api_key);
+    });
+}
+window.onload = loadStocksInData();

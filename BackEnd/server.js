@@ -1,27 +1,31 @@
 const express = require('express');
 const fs = require('fs');
 const app = express();
+const cors = require('cors')
 
+app.use(cors());
 
-app.get('/full', function (req, res) {
+app.get('/debts', function (req, res) {
   fs.readFile('datas.json', (err, data) =>{
     
     if(err) throw err;
     else{
       let d = JSON.parse(data);
-      res.send(d);
+      res.send(d['debts']);
     }
   })
 })
 
-app.get('/g', function (req, res) {
-    res.send('<h1>Hola<h1>');
-  })
-
-app.get('*', function (req, res){
-    if(res.status(400)){
-        res.send('<h1>Link sbagliato<h1>');
+app.get('/stocks', function (req, res) {
+  fs.readFile('datas.json', (err, data) =>{
+    
+    if(err) throw err;
+    else{
+      let d = JSON.parse(data);
+      res.send(d['stocks']);
     }
+  })
 })
+
 
 app.listen(3000);

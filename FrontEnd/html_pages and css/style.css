@@ -10,7 +10,18 @@
 .accbutton{
     display: block !important;
 }
+li.d-1{
+  padding-left: 10px;
+  color: #1e272e;
 
+  background:
+      linear-gradient(-45deg,transparent var(--g),#808e9b 0) left  /var(--c) 100%,
+      linear-gradient(135deg,transparent var(--g),#808e9b 0) bottom /100% var(--c),
+      conic-gradient(from -90deg at top var(--b)   right var(--b),currentColor 270deg,transparent 0),
+      conic-gradient(from  90deg at bottom calc(var(--c) + var(--b)) left calc(var(--c) + var(--b)),currentColor 270deg,transparent 0) ;
+  background-repeat:no-repeat;
+  background-origin:border-box;
+}
 
 /* hover effect */
 .d-1 {

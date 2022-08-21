@@ -82,7 +82,7 @@ function dinloadnavbar(){
 
 function createBlock(text, url, flatuiClass, listappendID){
     const li = document.createElement('li');
-    li.className = 'nav-item list-group-item';
+    li.className = 'nav-item list-group-item d-1';
     li.id = text;
     document.getElementById(listappendID).appendChild(li);
 

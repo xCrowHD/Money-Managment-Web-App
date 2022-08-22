@@ -34,7 +34,7 @@ function addDebt(debtN, totalAmount, payedAmount){
     document.getElementById(debtB1.id).appendChild(debtTAmount);
 
     let debtT = document.createElement('span');
-    debtT.textContent = `${totalAmount}`;
+    debtT.textContent = totalAmount;
     debtT.id  = `debtT ${debtN}`;
     document.getElementById(debtTAmount.id).appendChild(debtT);
 
@@ -63,7 +63,7 @@ function addDebt(debtN, totalAmount, payedAmount){
     let dollarsi1 = document.createElement('span');
     dollarsi1.style.color = '#1e272e';
     dollarsi1.textContent = ' $';
-    document.getElementById(dollarAm.id).appendChild(dollarsi1);
+    document.getElementById(debtPayedAmount.id).appendChild(dollarsi1);
     
 
     // progress bar
@@ -83,8 +83,13 @@ function addDebt(debtN, totalAmount, payedAmount){
     progress.setAttribute('role', 'progressbar');
     progress.setAttribute('aria-valuenow', payedAmount);
     progress.setAttribute('aria-valuemin', payedAmount);
-    progress.setAttribute('aria-valuemax', `${totalAmount}`);
-    progress.style.width = `${payedAmount}%`;
+    progress.setAttribute('aria-valuemax', totalAmount);
+
+    let p = payedAmount;
+    if(payedAmount != 0){
+        p = payedAmount / totalAmount;
+    }
+    progress.style.width = `${p * 100}%`;
     document.getElementById(progressbarB.id).appendChild(progress);
     
 
@@ -127,9 +132,14 @@ function addDebt(debtN, totalAmount, payedAmount){
         if(a[0] == debtN){
 
             document.getElementById(dollarAm.id).textContent = parseInt(document.getElementById(dollarAm.id).textContent) + parseInt(amount);
-            document.getElementById(progress.id).setAttribute('aria-valuenow', `${document.getElementById(dollarAm.id).textContent}`);
-            let divide = parseInt(document.getElementById(dollarAm.id).textContent) / parseInt(document.getElementById(debtT.id).textContent);
-            document.getElementById(progress.id).style.width = `${ divide * 100}%`;
+            let pa = parseInt(document.getElementById(dollarAm.id).textContent);
+            let pt = parseInt(document.getElementById(debtT.id).textContent);
+            let divide = pa / pt;
+            document.getElementById(progress.id).setAttribute('aria-valuenow', `${divide}`);
+            document.getElementById(progress.id).style.width = `${divide * 100}%`;
+
+            // here we send the updated amount payed to the server
+            updatingDebt(debtN, pa);
         }
         
     }
@@ -141,6 +151,21 @@ function addDebt(debtN, totalAmount, payedAmount){
 
         document.getElementById('sumbmitdebt').removeEventListener('click', payedDebt);
     })
+
+}
+// post request for updating the total payed debts
+async function updatingDebt(id, sum){
+    let data = {id, sum};
+
+    await fetch('http://localhost:3000/debts/payedamount', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            },
+        body: JSON.stringify(data),
+    })
+
 
 }
 
@@ -162,11 +187,9 @@ document.getElementById('adddebt').addEventListener('click', ()=>{
 async function loadDebts(){
     let data = await fetch('http://localhost:3000/debts');
     let debtsList = await data.json();
-    debtsList.forEach(element =>{
-        console.log(element);
-        addDebt(element[1], element[2], element[3]);
-
-    });
+    for(const value of Object.values(debtsList)){
+        addDebt(value[0], value[1], value[2]);
+    }
 }
 
 window.onload = loadDebts();

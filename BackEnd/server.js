@@ -32,7 +32,6 @@ app.post('/trans/addtr', function(req, res){
       let d = JSON.parse(data);
       let dJSON = d['tr']['transactions'];
       dJSON.push(newarr);
-      console.log(d);
 
       fs.writeFile('datas.json', JSON.stringify(d, null, 2), (err)=>{
         if(err){
@@ -44,6 +43,26 @@ app.post('/trans/addtr', function(req, res){
   })
 })
 
+app.post('/debts/adddebt', function(req, res){
+  let body = req.body;
+  res.end();
+  
+  fs.readFile('datas.json', (err, data)=>{
+    if(err) throw err;
+    else{
+
+      let d = JSON.parse(data);
+      let dJSON = d['debts'];
+      dJSON[`${body['name']}`] = [body['name'], body['total'], body['payed']];
+      console.log(d);
+
+      fs.writeFile('datas.json', JSON.stringify(d, null, 2), (err1)=>{
+        if(err1) throw err1;
+      })
+    }
+  })
+
+})
 
 app.get('/debts/loaddebts', function (req, res) {
   fs.readFile('datas.json', (err, data) =>{

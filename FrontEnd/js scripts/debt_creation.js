@@ -179,9 +179,25 @@ document.getElementById('adddebt').addEventListener('click', ()=>{
 
     if(document.getElementById(`block ${n}`) == null){
         addDebt(n, m, 0);
+        addDebtToData(n, m, 0);
     }
     
 })
+// it add the debt to the datas.json
+async function addDebtToData(name, total, payed){
+    let data = {name, total, payed};
+
+    await fetch('http://localhost:3000/debts/adddebt', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            },
+        body: JSON.stringify(data),
+    })
+
+    console.log(data);
+}
 
 // retrieve debt from datas.json
 async function loadDebts(){

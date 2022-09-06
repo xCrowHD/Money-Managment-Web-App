@@ -31,6 +31,8 @@ function createIMG(symbol, imgURL){
     img.style.margin = '0 auto';
     img.style.display = 'block';
     img.src = imgURL;
+    img.width = '100';
+    img.height = '100';
     img.alt = 'LOGO';
     document.getElementById(imgcont.id).appendChild(img);
 }
@@ -87,8 +89,8 @@ function createStockBox(symbol, imgURL, name, price, changeper){
 }
 function getStockS(){
     return document.getElementById('stocksymbol').value;
-    
 }
+
 // Creating the StockBox using TwelveData API
 async function request(sym, api_key){
     let p = await fetch(`https://api.twelvedata.com/price?symbol=${sym}&apikey=${api_key}`);
@@ -112,10 +114,23 @@ document.getElementById('sendstock').addEventListener('click', ()=>{
 
         const api_key  = '69231d33dbce46b5b0a8d16202890131';
         request(sym, api_key);
-        console.log("Here First");
+        addStockToData(sym);
     }
     
 })
+// This function add stock symbol to the datas.json
+async function addStockToData(sym){
+    let data = {sym};
+
+    await fetch('http://localhost:3000/stocks/addstock', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            },
+        body: JSON.stringify(data),
+    })
+}
 
 // Getting the Market Performance
 async function loadStocksPerformance(api_key){
@@ -137,7 +152,7 @@ window.onload = loadStocksPerformance('69231d33dbce46b5b0a8d16202890131');
 
 // Loading saved stocks from the datas.json
 async function loadStocksInData(){
-    let data = await fetch('http://localhost:3000/stocks');
+    let data = await fetch('http://localhost:3000/stocks/loadstock');
     let stockList = await data.json();
     console.log(stockList);
     stockList.forEach(element =>{

@@ -185,7 +185,7 @@ document.getElementById('adddebt').addEventListener('click', ()=>{
 
 // retrieve debt from datas.json
 async function loadDebts(){
-    let data = await fetch('http://localhost:3000/debts');
+    let data = await fetch('http://localhost:3000/debts/loaddebts');
     let debtsList = await data.json();
     for(const value of Object.values(debtsList)){
         addDebt(value[0], value[1], value[2]);

@@ -125,6 +125,7 @@ function addingtrans(name, month, day, money, earn_spent, type, descr){
     number++;
 
 }
+// we get the data from the form 
 function gettingValuesFromForm(){
 
     let data = {ts: '', m: '', d: 0, mo: 0, es: '', t: '', de: ''  };
@@ -161,8 +162,34 @@ function gettingValuesFromForm(){
     return data;
 
 }
-document.getElementById('submitB').addEventListener('click',
- ()=>{
+// creating transaction real time
+document.getElementById('submitB').addEventListener('click',()=>{
     let data = gettingValuesFromForm();
     addingtrans(data.ts, data.m, data.d, data.mo, data.es, data.t, data.de);
+    addTrans(data.ts, data.m, data.d, data.mo, data.es, data.t, data.de);
 });
+
+// gettin transaction number
+async function gettingTrNumber(){
+    let d = await fetch('http://localhost:3000/trans/trn');
+    let dJSON = await d.json();
+    number = dJSON['n'];
+}
+window.onload = gettingTrNumber();
+
+// adding the transaction into datas.json
+async function addTrans(name, month, day, money, earn_spent, type, descr){
+
+    let data = {name, month, day, money, earn_spent, type, descr};
+
+    await fetch('http://localhost:3000/trans/addtr', 
+    {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            },
+        body: JSON.stringify(data),
+    });
+
+}

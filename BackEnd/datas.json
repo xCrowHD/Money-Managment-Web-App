@@ -135,14 +135,16 @@
     }
   },
   "tr": {
-    "transactionNumber": 0,
+    "transactionNumber": 3,
     "transactions": [
       [
-        "Person",
-        "Month/Day",
-        "Money",
-        "Spent/Earn",
-        "Type"
+        "Mattia",
+        "Feb",
+        "12",
+        "30",
+        "Spent",
+        "🍔",
+        "Un panino"
       ]
     ]
   },
@@ -150,16 +152,17 @@
     "Car": [
       "Car",
       450,
-      301
+      354
     ],
     "House": [
       "House",
       600,
-      0
+      520
     ]
   },
   "stocks": [
     "AAPL",
-    "MSFT"
+    "MSFT",
+    "NVDA"
   ]
 }
